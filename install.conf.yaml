@@ -6,6 +6,10 @@
 - brewfile:
   file: Brewfile
 
+# MacOS
+- shell:
+  - [macos/setup.sh, Configuring MacOS]
+
 # GIT
 - link:
   ~/.gitconfig: git/gitconfig
