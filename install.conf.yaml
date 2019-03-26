@@ -49,3 +49,7 @@
     ~/zsh/pyenv.zsh: zsh/pyenv.zsh
     ~/.zshrc: zsh/zshrc
 
+# iTerm2
+- shell:
+    - [iterm2/setup.sh, Setting up iTerm2]
+
