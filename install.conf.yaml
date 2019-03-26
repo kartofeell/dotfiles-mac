@@ -1,51 +1,51 @@
 - clean: ['~']
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
 
 - brewfile:
-  - Brewfile
+    - Brewfile
 
 # MacOS
 - shell:
-  - [macos/setup.sh, Configuring MacOS]
+    - [macos/setup.sh, Configuring MacOS]
 
 # GIT
 - link:
-  ~/.gitconfig: git/gitconfig
-  ~/.gitignore: git/gitignore
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore: git/gitignore
 
 # GPG
 - link:
-  ~/.gnupg/gpg-agent.conf: gpg/gpg-agent.conf
-  ~/.gnupg/gpg.conf: gpg/gpg.conf
+    ~/.gnupg/gpg-agent.conf: gpg/gpg-agent.conf
+    ~/.gnupg/gpg.conf: gpg/gpg.conf
 
 # Ruby
 - shell:
-  - [ruby/setup.sh, Setting up Ruby]
+    - [ruby/setup.sh, Setting up Ruby]
 
 - link:
-  ~/.gemrc: ruby/gemrc
-  ~/.irbrc: ruby/irbrc
-  ~/.pryrc: ruby/pryrc
-  ~/zsh/rbenv.zsh: ruby/rbenv.zsh
+    ~/.gemrc: ruby/gemrc
+    ~/.irbrc: ruby/irbrc
+    ~/.pryrc: ruby/pryrc
+    ~/zsh/rbenv.zsh: ruby/rbenv.zsh
 
 # VIM
 - shell:
-  - [vim/setup.sh, Setting up VIM]
+    - [vim/setup.sh, Setting up VIM]
 
 - link:
-  ~/.vimrc: vim/vimrc
-  ~/.vim/colors/flattown.vim: vim/flattown.vim
+    ~/.vimrc: vim/vimrc
+    ~/.vim/colors/flattown.vim: vim/flattown.vim
 
 # ZSH
 - shell:
-  - [zsh/setup.sh, Setting up ZSH]
+    - [zsh/setup.sh, Setting up ZSH]
 
 - link:
-  ~/.oh-my-zsh: zsh/oh-my-zsh/
-  ~/zsh/gpg.zsh: zsh/gpg.zsh
-  ~/zsh/iterm2_shell_integration.zsh: zsh/iterm2_shell_integration.zsh
-  ~/zsh/pyenv.zsh: zsh/pyenv.zsh
-  ~/.zshrc: zsh/zshrc
+    ~/.oh-my-zsh: zsh/oh-my-zsh/
+    ~/zsh/gpg.zsh: zsh/gpg.zsh
+    ~/zsh/iterm2_shell_integration.zsh: zsh/iterm2_shell_integration.zsh
+    ~/zsh/pyenv.zsh: zsh/pyenv.zsh
+    ~/.zshrc: zsh/zshrc
 
