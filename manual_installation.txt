@@ -1,4 +1,8 @@
 * Sensoble Side Buttons
   http://sensible-side-buttons.archagon.net
 * Monosnap
+* GitHub
+   - create a personal access token: https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
+   - clone some private repo to save credentials
+
 
