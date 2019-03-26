@@ -4,6 +4,6 @@
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "dotbot-brewfile"]
-	path = dotbot-brewfile
-	url = https://github.com/sobolevn/dotbot-brewfile.git
+[submodule "dotbot-brew"]
+	path = dotbot-brew
+	url = https://github.com/d12frosted/dotbot-brew.git
