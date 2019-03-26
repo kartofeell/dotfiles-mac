@@ -1,0 +1,42 @@
+[user]
+  name = Lukasz Kulisz
+  email = lukasz.kulisz@hotmail.com
+[alias]
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  st = status -sb
+  staged = diff --cached
+  ign = ls-files -o -i --exclude-standard
+  co = checkout
+  ci = commit
+  cherry-pick = cherry-pick -x
+  l = log --graph --date=short
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+  changelog = log --pretty=format:\" * %s\"
+  wip = commit -a -m "WIP"
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
+[core]
+  editor = vim
+  autocrlf = input
+[apply]
+  whitespace = nowarn
+[format]
+  pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+[push]
+  default = current
+[gc]
+  auto = 1
+[merge]
+  summary = 1
+[rebase]
+  autosquash = true
+[github]
+	user = lukasz.kulisz@hotmail.com
+[magit]
+	hideCampaign = true

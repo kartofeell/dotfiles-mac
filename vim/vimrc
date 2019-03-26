@@ -1,0 +1,117 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+syntax on
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'scrooloose/nerdtree'
+Plugin 'petdance/ack2'
+Plugin 'danro/rename.vim'
+Plugin 'altercation/vim-colors-solarized'
+"Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'craigemery/vim-autotag'
+"Plugin 'vim-scripts/taglist.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Autocomplete
+set wildmode=longest,list
+set wildmenu
+set mouse=a
+
+" Shortcuts
+map <C-n> :NERDTree<CR>
+map <C-m> :CtrlPBuffer<CR>
+map <F4> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-from=exclude.list . -e " . expand("<cword>") . " " <bar> cwindow<CR>
+
+" CtrlP
+let g:ctrlp_working_path_mode = ''
+
+" Show file path in status line
+set statusline+=%F
+set laststatus=2
+
+" Indeting
+set tabstop=8     " tabs are at proper location
+set expandtab     " don't use actual tab character (ctrl-v)
+set shiftwidth=2  " indenting is 2 spaces
+set autoindent    " turns it on
+set smartindent   " does the right thing (mostly) in programs
+set cindent       " stricter rules for C programs
+
+let &t_Co=256 " use 256 colors
+" set background=dark " use dark background
+" colorscheme solarized
+colorscheme flattown
+" colorscheme blue
+
+" Line numbers
+set number
+
+" test
+
+" Status line
+" set statusline=%t       "tail of the filename
+" set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+" set statusline+=%{&ff}] "file format
+" set statusline+=%h      "help file flag
+" set statusline+=%m      "modified flag
+" set statusline+=%r      "read only flag
+" set statusline+=%y      "filetype
+" set statusline+=%=      "left/right separator
+" set statusline+=%c,     "cursor column
+" set statusline+=%l/%L   "cursor line/total lines
+" set statusline+=\ %P    "percent through file
+
+" CTAGS shortcuts
+" map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+:set hlsearch  " Highlight search
+:set incsearch " Use incremental search
+
+" Toggle search highliting
+nnoremap <leader>h :set hlsearch!<CR>
+" Clean broken whitespaces
+nnoremap <leader>s ms:%s/\s\+$<CR>:w<CR>`s
+
+" Make Y behave like D
+nnoremap Y y$
+
+" Double escape optionally exits insert and saves
+noremap! <ESC><ESC> <ESC>:w<CR>
+noremap <ESC><ESC> <ESC>:w<CR>
+
+" Use 0 to go to first text char in line
+nnoremap 0 ^
+nnoremap ^ 0
+
+set showmode
+
+" ================ Turn Off Swap Files ==============
+set noswapfile
+set nobackup
+set nowb
+
+" Folding
+" set foldmethod=syntax
+
+" python from powerline.vim import setup as powerline_setup
+" python powerline_setup()
+" python del powerline_setup
+
+if has('gui_running')
+  set guifont=Consolas\ 8
+endif
+
