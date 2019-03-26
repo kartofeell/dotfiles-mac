@@ -6,7 +6,6 @@ tap "caskroom/versions"
 cask "java8"
 brew "cask"
 brew "git"
-brew "gnupg", args: ["with-readline"]
 brew "pinentry-mac"
 brew "mas"
 brew "ruby-build"
