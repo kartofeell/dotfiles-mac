@@ -28,7 +28,6 @@ cask "toggl"
 cask "dropbox"
 cask "firefox"
 cask "google-chrome"
-cask "google-drive-file-stream"
 cask "keepassx"
 cask "spotify"
 
