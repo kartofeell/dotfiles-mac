@@ -7,5 +7,5 @@ if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
 fi
 sudo chsh -s "$shell_path" "$USER"
 
-mkdir $HOME/zsh
+mkdir -p $HOME/zsh
 
