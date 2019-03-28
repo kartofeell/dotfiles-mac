@@ -53,6 +53,7 @@
 
 - link:
     ~/.oh-my-zsh: zsh/oh-my-zsh/
+    ~/zsh/aliases.zsh: zsh/aliases.zsh
     ~/zsh/gpg.zsh: zsh/gpg.zsh
     ~/zsh/iterm2_shell_integration.zsh: zsh/iterm2_shell_integration.zsh
     ~/zsh/pyenv.zsh: zsh/pyenv.zsh
