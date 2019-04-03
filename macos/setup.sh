@@ -21,6 +21,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Show status bar in finder
 defaults write com.apple.finder ShowStatusBar -bool true
 
+# Fix blurry fonts in Mohave (https://www.howtogeek.com/358596/how-to-fix-blurry-fonts-on-macos-mojave-with-subpixel-antialiasing/)
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+
 # Disable spotlight indexing
 # sudo mdutil -i off -d /
 
