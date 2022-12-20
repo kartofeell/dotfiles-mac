@@ -1,4 +1,8 @@
 .DS_Store
 *~
 *.swp
-TAGS
+/TAGS
+
+# IntelliJ Idea
+*/.idea/**
+*.iml

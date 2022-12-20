@@ -29,16 +29,6 @@
       path: gpg/gpg.conf
       force: true
 
-# Ruby
-- shell:
-    - [ruby/setup.sh, Setting up Ruby]
-
-- link:
-    ~/.gemrc: ruby/gemrc
-    ~/.irbrc: ruby/irbrc
-    ~/.pryrc: ruby/pryrc
-    ~/zsh/rbenv.zsh: ruby/rbenv.zsh
-
 # VIM
 - shell:
     - [vim/setup.sh, Setting up VIM]
@@ -62,4 +52,8 @@
 # iTerm2
 - shell:
     - [iterm2/setup.sh, Setting up iTerm2]
+
+# Emacs
+- link:
+    ~/.emacs emacs/emacs
 

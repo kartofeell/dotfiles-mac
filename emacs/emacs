@@ -1,0 +1,132 @@
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+(package-initialize)
+
+;; (eval-when-compile
+;  (require 'use-package))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(wombat))
+ '(global-visual-line-mode t)
+ '(org-agenda-custom-commands
+   '(("w" "Week Scheduling" agenda "-PARENT"
+      ((org-agenda-category-filter-preset
+	'("+zen"))
+       (org-agenda-span 'week)
+       (org-agenda-tag-filter-preset
+	'("-PARENT"))))
+     ("m" "Parent Tasks" agenda "MASTER"
+      ((org-agenda-regexp-filter-preset
+	'("+\\[.*/.*\\]"))))
+     ("f" "Followup"
+      ((todo "D" nil)
+       (todo "F" nil))
+      nil)
+     ("r" "Reviews" todo "〄" nil)
+     ("p" "Plan for Zen"
+      ((tags "SCHEDULED<=\"<2022-08-07>\"+SCHEDULED>=\"<2022-08-01>\"-RECURRING"
+	     ((org-agenda-category-filter-preset
+	       '("+zen"))))
+       (tags "SCHEDULED>=\"<2022-08-08>\"+SCHEDULED<=\"<2022-08-14>\"-RECURRING"
+	     ((org-agenda-category-filter-preset
+	       '("+zen"))))
+       (tags "SCHEDULED>=\"<2022-08-15>\"+SCHEDULED<=\"<2022-08-21>\"-RECURRING"
+	     ((org-agenda-category-filter-preset
+	       '("+zen"))))
+       (tags "SCHEDULED>=\"<2022-08-22>\"+SCHEDULED<=\"<2022-08-28>\"-RECURRING"
+	     ((org-agenda-category-filter-preset
+	       '("+zen")))))
+      nil nil)
+     ("x" "Unscheduled" tags-todo "SCHEDULED=\"\""
+      ((org-agenda-category-filter-preset
+	'("+zen"))))))
+ '(org-agenda-files '("~/org/zen/zen.org"))
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-sorting-strategy
+   '((agenda habit-down time-up priority-down category-keep)
+     (todo priority-down scheduled-up category-keep)
+     (tags priority-down scheduled-up category-keep)
+     (search scheduled-up category-keep)))
+ '(org-agenda-span 14)
+ '(org-agenda-time-grid
+   '((daily today require-timed)
+     (800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 2000)
+     "......" "----------------"))
+ '(org-agenda-todo-ignore-with-date nil)
+ '(org-agenda-with-colors t)
+ '(org-refile-use-outline-path t)
+ '(org-tags-column -77)
+ '(org-tags-exclude-from-inheritance '("PROJECT" "GOAL" "FLAGGED" "PARENT"))
+ '(org-todo-keyword-faces
+   '(("F" . "lightblue")
+     ("✗" . "red")
+     ("S" . "yellow")
+     ("D" . "cyan")
+     ("R" . "orange")))
+ '(package-selected-packages '(org-roam org-super-agenda org-gcal)))
+ '(org-capture-templates
+   '(("n" "Note" entry
+      (file+olp "~/org/zen/zen.org" "Inbox")
+      "* %U %?")
+     ("f" "Followup" entry
+      (file+olp "~/org/zen/zen.org" "Inbox")
+      "* 〒 %?")
+     ("t" "Task" entry
+      (file+olp "~/org/zen/zen.org" "Inbox")
+      "* ⎕ %?")))
+
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
+;; Gloabal shortcu to open agenda view
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+;; Global shortcut to org-capture
+(global-set-key (kbd "<f6>") 'org-capture)
+
+;; Global shortcuts to resize window splits
+(global-set-key (kbd "A-<down>") 'enlarge-window)
+(global-set-key (kbd "A-<up>") 'shrink-window)
+(global-set-key (kbd "A-<left>") 'enlarge-window-horizontally)
+(global-set-key (kbd "A-<right>") 'shrink-window-horizontally)
+
+;; Org mode clocking app for OSX https://github.com/koddo/org-clock-statusbar-app
+(add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+(add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
+
+(setq org-refile-targets
+      '((nil :maxlevel . 3)
+        (org-agenda-files :maxlevel . 3)))
+
+
+;; org-roam
+;; (setq org-roam-directory (file-truename "~/org/life/roam"))
+;; (org-roam-db-autosync-mode)
+;; (require 'deft)
+;; (use-package deft
+;;  :after org
+;;  :bind
+;;  ("C-c n d" . deft)
+;;  :custom
+;;  (deft-recursive t)
+;;  (deft-use-filter-string-for-filename t)
+;;  (deft-default-extension "org")
+;;  (deft-directory org-roam-directory))
+
+
